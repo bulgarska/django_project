@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    # parses url up until the next element/ and passes the rest of the url
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
 ]
