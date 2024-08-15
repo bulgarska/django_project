@@ -1,3 +1,5 @@
+<!-- Django convention to create a sub directory with the name of the app, "templates/blog" -->
+
 {% load static %}
 <!DOCTYPE html>
 <html>
@@ -58,6 +60,14 @@
       <main role="main" class="container">
          <div class="row">
             <div class="col-md-8">
+               {% if messages %}
+                  {% for message in messages %}
+                     <!-- Django messages and bootstrap alerts have the same tags -->
+                     <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                     </div>
+                  {% endfor %}
+               {% endif %}
                <!-- A block is a section a child template can overwrite -->
                {% block content %}{% endblock %}
             </div>

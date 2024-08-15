@@ -6,6 +6,7 @@ def home(request):
         'posts': Post.objects.all()
     }
     # path to html file in views to render the page
+    # conext must be a dictionary
     return render(request, 'blog/home.html', context)
 
 def about(request):
