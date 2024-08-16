@@ -1,0 +1,7 @@
+<!-- Django convention to create a sub directory with the name of the app, "templates/user" -->
+{% extends "blog/base.html" %}
+<!-- loads in crispy form tags -->
+ {% load crispy_forms_tags %}
+{% block content %}
+    <h1>{{ user.username }}</h1>
+{% endblock content%}

@@ -1,0 +1,12 @@
+<!-- Django convention to create a sub directory with the name of the app, "templates/user" -->
+{% extends "blog/base.html" %}
+{% block content %}
+    <h2>You have been logged out.</h2>
+    <div class="border-top pt-3">
+        <!-- Bootstrap for text that is dull and does not stand out -->
+        <small class="text-muted">
+            <!-- # in link goes nowhere -->
+            <a href="{% url 'login' %}">Log In Again</a>
+        </small>
+    </div>
+{% endblock content%}
