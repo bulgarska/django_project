@@ -52,8 +52,13 @@
                   <div class="navbar-nav">
                      <!-- checks if user is logged in -->
                      {% if user.is_authenticated %}
-                     <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
-                        <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+                        <a class="nav-item nav-link btn btn-link" href="{% url 'profile' %}">Profile</a>
+                        <!-- <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a> -->
+                        <form action="{% url 'logout' %}" method="post">
+                           <!-- csrf_token is very important to have as logging out requires a POST request -->
+                           {% csrf_token %}
+                           <button type="submit" class="nav-item nav-link btn btn-link">Logout</button>
+                        </form>
                      {% else %}
                         <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
                         <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
