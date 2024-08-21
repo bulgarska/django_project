@@ -1,0 +1,22 @@
+<!-- Django convention to create a sub directory with the name of the app, "templates/user" -->
+{% extends "blog/base.html" %}
+<!-- loads in crispy form tags -->
+{% load crispy_forms_tags %}
+{% block content %}
+    <!-- class arg is for styling -->
+    <div class="content-section">
+        <form method="POST">
+            <!-- csrf_token required by Django, will not work otherwise -->
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <!-- bootstrap class -->
+                <legend class="border-bottom mb-4">Blog Post</legend>
+                <!-- use crispy filter to syle form-->
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Post</button>
+            </div>
+        </form>
+    </div>
+{% endblock content%}

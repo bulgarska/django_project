@@ -4,6 +4,7 @@ from django.utils import timezone
 # post model and user model will have a relationship
 # user authors posts, one to many relationship
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 class Post(models.Model):
     title = models.CharField(max_length= 100) 
@@ -17,3 +18,8 @@ class Post(models.Model):
     #Dunder (double underscores), shows title of post when printed in shell
     def __str__(self):
         return self.title
+    
+    def get_absolute_url(self):
+        return reverse('post-detail', kwargs={'pk': self.pk})
+    
+    
